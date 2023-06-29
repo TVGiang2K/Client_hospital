@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link} from 'react-router-dom';
 import Header from './Header';
+import ListMedical from '../components/ListMedical';
+import {usePatientContext } from '../context/context';
+
 function MedicalPatient(props) {
+
+    const {isLoading, featurePatients} = usePatientContext();
+
+    if(isLoading){
+        return <div>......Loading</div>
+    }
     return (
+        
         <>
-        <Header />
+            <Header />
             <section className="content">
                 <div className="block-header">
                     <div className="row">
@@ -42,7 +52,7 @@ function MedicalPatient(props) {
                                     </div>
                                     <div className="cbp_tmlabel">
                                         <h2>
-                                            <a href="javascript:void(0);">List Medical</a>{" "}
+                                            <a href="#">List Medical</a>{" "}
                                             <span>posted a status update</span>
                                         </h2>
                                         <div className="card">
@@ -58,17 +68,9 @@ function MedicalPatient(props) {
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <Link to="/medicalPatient">Id Medical</Link>
-                                                            </td>
-                                                            <td>(CFO)</td>
-                                                            <td>New York</td>
-                                                            <td>64</td>
-                                                            <td>
-                                                                <span className="tag tag-success"> Active</span>
-                                                            </td>
-                                                        </tr>
+                                                        {featurePatients.map((item) => {
+                                                           return <ListMedical key={item.id} {... item}/>;
+                                                        })}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -82,7 +84,7 @@ function MedicalPatient(props) {
                                     </div>
                                     <div className="cbp_tmlabel">
                                         <h2>
-                                            <a href="javascript:void(0);">Job Meeting</a>
+                                            <a href="#">Job Meeting</a>
                                         </h2>
                                         <p>
                                             You have a meeting at <strong>Laborator Office</strong> Today.

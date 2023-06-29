@@ -33,7 +33,6 @@ function AddPatient(props) {
                                     </h2>
                                 </div>
                                 <div className="body">
-                                    <h2 className="card-inside-title">Info Patient</h2>
                                     <div className="row clearfix">
                                         <div className="col-sm-4">
                                             <b>FullName</b>

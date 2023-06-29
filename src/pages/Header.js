@@ -11,7 +11,8 @@ function Header(props) {
           <div className="navbar-header">
             <a href="#" className="bars" />
             <Link className="navbar-brand" to="/">
-              <img src="assets/images/logo.jpg" width={30} />
+              <img src='../assets/images/image1.jpg' width={30} />
+              
               <span className="m-l-10">NBI</span>
             </Link>
           </div>
